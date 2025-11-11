@@ -1,5 +1,6 @@
 version: '3'
-
+volumes:
+  n8n_data:
 services:
   n8n:
     build:
@@ -12,3 +13,5 @@ services:
     environment:
       - GENERIC_TIMEZONE=Asia/Tehran
       - N8N_PORT=${PORT:-5678}
+    volumes:
+      - n8n_data:/home/node/.n8n
