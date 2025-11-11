@@ -1,0 +1,22 @@
+version: '3'
+
+volumes:
+  n8n_data:
+
+services:
+  n8n:
+    image: n8nio/n8n:1.118.2
+    command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      - n8n_data:/home/node
+    restart: always
+    environment:
+      # --- Basics ---
+      - GENERIC_TIMEZONE=Asia/Tehran
+      # --- Security ---
+      - N8N_ENCRYPTION_KEY=change_me_to_a_long_random_string
+      # --- Telemetry ---
+      - N8N_DIAGNOSTICS_ENABLED=false
+      - N8N_VERSION_NOTIFICATIONS_ENABLED=false
+    expose:
+      - 5678
