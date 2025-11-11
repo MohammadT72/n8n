@@ -6,7 +6,7 @@ volumes:
 services:
   n8n:
     image: n8nio/n8n:1.118.2
-    command: '--default-authentication-plugin=mysql_native_password'
+    command: ["n8n","start"]
     volumes:
       - n8n_data:/home/node
     restart: always
