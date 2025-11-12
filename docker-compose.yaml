@@ -3,19 +3,13 @@ version: '3'
 volumes:
   n8n_data:
 services:
-  n8n:
-    image: n8nio/n8n:1.118.2
-    command: ["n8n","start"]
+  my_n8n_main_medvira:
+    image: n8nio/n8n:latest
     volumes:
       - n8n_data:/home/node/.n8n
     restart: always
     environment:
       # --- Basics ---
       - GENERIC_TIMEZONE=Asia/Tehran
-      # --- Security ---
-      - N8N_ENCRYPTION_KEY=change_me_to_a_long_random_string
-      # --- Telemetry ---
-      - N8N_DIAGNOSTICS_ENABLED=false
-      - N8N_VERSION_NOTIFICATIONS_ENABLED=false
     expose:
       - 5678
