@@ -6,14 +6,17 @@ volumes:
 services:
   myn8none:
     image: n8nio/n8n:1.118.2
-    command: ["n8n"]
     volumes:
       - n_data:/home/node/.n8n
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=somewordpress
-      - MYSQL_DATABASE=wordpress
-      - MYSQL_USER=wordpress
-      - MYSQL_PASSWORD=wordpress
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+      - N8N_PORT=wordpress
+      - N8N_PROTOCOL=5678
+      - N8N_PROTOCOL=https
+      - N8N_RUNNERS_ENABLED=true
+      - NODE_ENV=production
+      - GENERIC_TIMEZONE=Asia/Tehran
+      - TZ=Asia/Tehran
     expose:
       - 5678
