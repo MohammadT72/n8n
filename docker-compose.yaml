@@ -1,15 +1,18 @@
 version: '3'
 
 volumes:
-  n8n_data:
+  n_data:
+
 services:
-  my_n8n_main_medvira:
-    image: n8nio/n8n
+  myn8n:
+    image: n8nio/n8n:1.118.2
     volumes:
-      - n8n_data:/home/node/.n8n
+      - n_data:/home/node/.n8n
     restart: always
     environment:
-      # --- Basics ---
-      - GENERIC_TIMEZONE=Asia/Tehran
+      - MYSQL_ROOT_PASSWORD=somewordpress
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=wordpress
     expose:
       - 5678
