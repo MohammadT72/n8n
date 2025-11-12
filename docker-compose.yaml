@@ -4,7 +4,7 @@ volumes:
   n8n_data:
 services:
   my_n8n_main_medvira:
-    image: n8nio/n8n:latest
+    image: n8nio/n8n
     volumes:
       - n8n_data:/home/node/.n8n
     restart: always
